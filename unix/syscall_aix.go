@@ -63,6 +63,11 @@ func UtimesNanoAt(dirfd int, path string, ts []Timespec, flags int) error {
 	return utimensat(dirfd, path, (*[2]Timespec)(unsafe.Pointer(&ts[0])), flags)
 }
 
+func (sa *SockaddrUnspec) sockaddr() (unsafe.Pointer, _Socklen, error) {
+	sa.raw.Family = AF_UNSPEC
+	return unsafe.Pointer(&sa.raw), SizeofSockaddr, nil
+}
+
 func (sa *SockaddrInet4) sockaddr() (unsafe.Pointer, _Socklen, error) {
 	if sa.Port < 0 || sa.Port > 0xFFFF {
 		return nil, 0, EINVAL

@@ -65,6 +65,12 @@ func (d *Dirent) NameString() string {
 	}
 }
 
+func (sa *SockaddrUnspec) sockaddr() (unsafe.Pointer, _Socklen, error) {
+	sa.raw.Len = SizeofSockaddr
+	sa.raw.Family = AF_UNSPEC
+	return unsafe.Pointer(&sa.raw), _Socklen(sa.raw.Len), nil
+}
+
 func (sa *SockaddrInet4) sockaddr() (unsafe.Pointer, _Socklen, error) {
 	if sa.Port < 0 || sa.Port > 0xFFFF {
 		return nil, 0, EINVAL

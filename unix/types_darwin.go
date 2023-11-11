@@ -204,6 +204,7 @@ type ICMPv6Filter C.struct_icmp6_filter
 type TCPConnectionInfo C.struct_tcp_connection_info
 
 const (
+	SizeofSockaddr          = C.sizeof_struct_sockaddr
 	SizeofSockaddrInet4     = C.sizeof_struct_sockaddr_in
 	SizeofSockaddrInet6     = C.sizeof_struct_sockaddr_in6
 	SizeofSockaddrAny       = C.sizeof_struct_sockaddr_any
