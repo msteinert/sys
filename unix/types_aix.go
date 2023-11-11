@@ -155,6 +155,7 @@ type Linger C.struct_linger
 type Msghdr C.struct_msghdr
 
 const (
+	SizeofSockaddr         = C.sizeof_struct_sockaddr
 	SizeofSockaddrInet4    = C.sizeof_struct_sockaddr_in
 	SizeofSockaddrInet6    = C.sizeof_struct_sockaddr_in6
 	SizeofSockaddrAny      = C.sizeof_struct_sockaddr_any

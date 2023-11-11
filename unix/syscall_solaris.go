@@ -88,6 +88,11 @@ func Pipe2(p []int, flags int) error {
 	return err
 }
 
+func (sa *SockaddrUnspec) sockaddr() (unsafe.Pointer, _Socklen, error) {
+	sa.raw.Family = AF_UNSPEC
+	return unsafe.Pointer(&sa.raw), SizeofSockaddr, nil
+}
+
 func (sa *SockaddrInet4) sockaddr() (unsafe.Pointer, _Socklen, error) {
 	if sa.Port < 0 || sa.Port > 0xFFFF {
 		return nil, 0, EINVAL
