@@ -211,6 +211,11 @@ type Sockaddr interface {
 	sockaddr() (ptr unsafe.Pointer, len _Socklen, err error) // lowercase; only we can define Sockaddrs
 }
 
+// SockaddrUnspec implements the Sockaddr interface for AF_UNSPEC type sockets.
+type SockaddrUnspec struct {
+	raw RawSockaddr
+}
+
 // SockaddrInet4 implements the Sockaddr interface for AF_INET type sockets.
 type SockaddrInet4 struct {
 	Port int

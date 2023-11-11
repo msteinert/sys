@@ -218,6 +218,7 @@ type IPv6MTUInfo C.struct_ip6_mtuinfo
 type ICMPv6Filter C.struct_icmp6_filter
 
 const (
+	SizeofSockaddr         = C.sizeof_struct_sockaddr
 	SizeofSockaddrInet4    = C.sizeof_struct_sockaddr_in
 	SizeofSockaddrInet6    = C.sizeof_struct_sockaddr_in6
 	SizeofSockaddrAny      = C.sizeof_struct_sockaddr_any

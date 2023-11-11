@@ -153,6 +153,12 @@ func Wait4(pid int, wstatus *WaitStatus, options int, rusage *Rusage) (wpid int,
 //sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
 //sys	Shutdown(s int, how int) (err error)
 
+func (sa *SockaddrUnspec) sockaddr() (unsafe.Pointer, _Socklen, error) {
+	sa.raw.Len = SizeofSockaddr
+	sa.raw.Family = AF_UNSPEC
+	return unsafe.Pointer(&sa.raw), _Socklen(sa.raw.Len), nil
+}
+
 func (sa *SockaddrInet4) sockaddr() (unsafe.Pointer, _Socklen, error) {
 	if sa.Port < 0 || sa.Port > 0xFFFF {
 		return nil, 0, EINVAL
