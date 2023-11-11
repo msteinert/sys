@@ -522,6 +522,7 @@ type TCPRepairOpt struct {
 }
 
 const (
+	SizeofSockaddr          = 0x10
 	SizeofSockaddrInet4     = 0x10
 	SizeofSockaddrInet6     = 0x1c
 	SizeofSockaddrAny       = 0x70
