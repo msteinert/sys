@@ -26,6 +26,7 @@ const (
 	SizeofICMPv6Filter  = 32
 	SizeofIPv6MTUInfo   = 32
 	SizeofLinger        = 8
+	SizeofSockaddr      = 16
 	SizeofSockaddrInet4 = 16
 	SizeofSockaddrInet6 = 28
 	SizeofTCPInfo       = 0x68
