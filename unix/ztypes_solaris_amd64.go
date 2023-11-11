@@ -228,6 +228,7 @@ type ICMPv6Filter struct {
 }
 
 const (
+	SizeofSockaddr         = 0x10
 	SizeofSockaddrInet4    = 0x10
 	SizeofSockaddrInet6    = 0x20
 	SizeofSockaddrAny      = 0xfc
